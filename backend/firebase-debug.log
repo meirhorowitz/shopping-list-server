@@ -1,0 +1,95 @@
+[debug] [2025-02-05T12:45:33.736Z] ----------------------------------------------------------------------
+[debug] [2025-02-05T12:45:33.737Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\meirhorowitz\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-02-05T12:45:33.737Z] CLI Version:   13.30.0
+[debug] [2025-02-05T12:45:33.737Z] Platform:      win32
+[debug] [2025-02-05T12:45:33.737Z] Node Version:  v20.11.0
+[debug] [2025-02-05T12:45:33.737Z] Time:          Wed Feb 05 2025 14:45:33 GMT+0200 (Israel Standard Time)
+[debug] [2025-02-05T12:45:33.737Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-05T12:45:33.741Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-02-05T12:45:33.771Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-05T12:45:33.771Z] > authorizing via signed-in user (meirhorowitz1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\meirhorowitz\projects\shopping-list\backend
+
+[debug] [2025-02-05T12:45:36.426Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-02-05T12:45:36.427Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-02-05T12:46:59.541Z] Checked if tokens are valid: false, expires at: 1738508112030
+[debug] [2025-02-05T12:46:59.541Z] Checked if tokens are valid: false, expires at: 1738508112030
+[debug] [2025-02-05T12:46:59.541Z] > refreshing access token with scopes: []
+[debug] [2025-02-05T12:46:59.542Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-02-05T12:46:59.542Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-02-05T12:46:59.832Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-02-05T12:46:59.832Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-02-05T12:46:59.856Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-02-05T12:47:00.525Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-02-05T12:47:00.525Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project shopping-list-5aa3b (shopping-list) 
+[info] 
+=== Firestore Setup
+[debug] [2025-02-05T12:47:05.927Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:47:05.927Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:47:05.927Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/shopping-list-5aa3b/services/firestore.googleapis.com [none]
+[debug] [2025-02-05T12:47:05.927Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/shopping-list-5aa3b/services/firestore.googleapis.com x-goog-quota-user=projects/shopping-list-5aa3b
+[debug] [2025-02-05T12:47:06.970Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/shopping-list-5aa3b/services/firestore.googleapis.com 200
+[debug] [2025-02-05T12:47:06.970Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/shopping-list-5aa3b/services/firestore.googleapis.com [omitted]
+[debug] [2025-02-05T12:47:06.971Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:47:06.971Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:47:06.971Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/(default) [none]
+[debug] [2025-02-05T12:47:07.289Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/(default) 404
+[debug] [2025-02-05T12:47:07.289Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/(default) {"error":{"code":404,"message":"Project 'shopping-list-5aa3b' or database '(default)' does not exist.","status":"NOT_FOUND"}}
+[debug] [2025-02-05T12:47:07.290Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/(default) had HTTP Error: 404, Project 'shopping-list-5aa3b' or database '(default)' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'shopping-list-5aa3b' or database '(default)' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/(default) had HTTP Error: 404, Project 'shopping-list-5aa3b' or database '(default)' does not exist.","status":404}
+[info] (default) does not exist in project shopping-list-5aa3b.
+[debug] [2025-02-05T12:47:07.290Z] database_type: DATABASE_DOES_NOT_EXIST
+[debug] [2025-02-05T12:48:36.418Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:48:36.418Z] Checked if tokens are valid: true, expires at: 1738763218832
+[debug] [2025-02-05T12:48:36.418Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/shopping-list-server [none]
+[debug] [2025-02-05T12:48:36.665Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/shopping-list-server 404
+[debug] [2025-02-05T12:48:36.666Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/shopping-list-server {"error":{"code":404,"message":"Project 'shopping-list-5aa3b' or database 'shopping-list-server' does not exist.","status":"NOT_FOUND"}}
+[debug] [2025-02-05T12:48:36.666Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/shopping-list-server had HTTP Error: 404, Project 'shopping-list-5aa3b' or database 'shopping-list-server' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'shopping-list-5aa3b' or database 'shopping-list-server' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/shopping-list-5aa3b/databases/shopping-list-server had HTTP Error: 404, Project 'shopping-list-5aa3b' or database 'shopping-list-server' does not exist.","status":404}
+[info] shopping-list-server does not exist in project shopping-list-5aa3b.
+[debug] [2025-02-05T12:48:36.666Z] database_type: DATABASE_DOES_NOT_EXIST
+[debug] [2025-02-05T12:49:09.781Z] ----------------------------------------------------------------------
+[debug] [2025-02-05T12:49:09.783Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\meirhorowitz\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-02-05T12:49:09.783Z] CLI Version:   13.30.0
+[debug] [2025-02-05T12:49:09.783Z] Platform:      win32
+[debug] [2025-02-05T12:49:09.783Z] Node Version:  v20.11.0
+[debug] [2025-02-05T12:49:09.783Z] Time:          Wed Feb 05 2025 14:49:09 GMT+0200 (Israel Standard Time)
+[debug] [2025-02-05T12:49:09.783Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-05T12:49:09.790Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-05T12:49:09.790Z] > authorizing via signed-in user (meirhorowitz1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\meirhorowitz\projects\shopping-list\backend
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
