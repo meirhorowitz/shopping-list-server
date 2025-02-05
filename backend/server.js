@@ -10,7 +10,7 @@ const authRoutes = require('./authRoutes');
 const shoppingRoutes = require('./shoppingRoutes'); // ייבוא הנתיבים למוצרים
 const authMiddleware = require('./authMiddleware');
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const server = http.createServer(app);
 
 app.use(cors({
@@ -47,8 +47,8 @@ app.use('/auth', authRoutes);
 app.use('/shopping', shoppingRoutes); // נתיבי שירותי קניות
 
 // התחלת השרת
-server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 
