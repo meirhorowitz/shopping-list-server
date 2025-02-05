@@ -1,5 +1,5 @@
 const express = require('express');
-const { register, login, getMe, getUsers } = require('./authController'); // ייבוא הפונקציות
+const {register,login,getMe,getUsers } = require('./authController'); // ייבוא הפונקציות
 const authMiddleware = require('./authMiddleware'); // אם יש לך Middleware לאימות טוקן
 const router = express.Router();
 
