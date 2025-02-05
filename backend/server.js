@@ -12,7 +12,7 @@ const authMiddleware = require('./authMiddleware');
 const app = express();
 const port = 3000;
 const server = http.createServer(app);
-const cors = require('cors');
+
 app.use(cors({
   origin: 'http://localhost:8100', // Allow requests only from localhost:8100
 }));
