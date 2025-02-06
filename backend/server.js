@@ -13,9 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const server = http.createServer(app);
 
-app.use(cors({
-  origin: 'http://localhost:8100', // Allow requests only from localhost:8100
-}));
+app.use(cors());
 // יצירת חיבור socket.io
 const io = initializeSocket(server); // initialize socket.io
 
@@ -39,7 +37,16 @@ mongoose.connect(MONGO_PUBLIC_URL, { useNewUrlParser: true, useUnifiedTopology: 
   .catch(err => console.log('MongoDB connection error:', err));
 
 // שימוש ב-CORS ואמצעי עיבוד נתונים
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:8100',  // הכתובת שאתה משתמש בה ב-ionic במהלך הפיתוח
+  'https://localhost'       // הכתובת ששולחת את הבקשות מהפלאפון
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));;
 app.use(bodyParser.json());
 
 // הגדרת נתיבים
