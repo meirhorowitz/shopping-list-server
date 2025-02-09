@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { getIO } = require('./socketConfig');
+const admin = require('./firebaseConfig');
 const itemSchema = new mongoose.Schema({
   name: { type: String, required: true },
   quantity: { type: Number, required: true, default: 1 },
@@ -87,6 +88,28 @@ const updateClientsForUser = async (userId) => {
 
   console.log("📡 שליחת עדכון למשתמש:", userId, "👀 נתונים:", items);
   getIO().to(userId.toString()).emit('updateList', items); // שליחה לכל הלקוחות שמחוברים לחדר הזה
+
+  try {
+    // שליחת התראה Firebase
+    const message = {
+      notification: {
+        title: 'עדכון ברשימת הקניות',
+        body: 'הרשימה שלך התעדכנה!'
+      },
+      data: {
+        type: 'LIST_UPDATE',
+        userId: userId.toString()
+      },
+      topic: `user_${userId}` // נושא ייחודי לכל משתמש
+    };
+
+    const response = await admin.messaging().send(message);
+    console.log('Successfully sent FCM message:', response);
+  } catch (error) {
+    console.error('Error sending FCM message:', error);
+  }
+
+
 };
 
 module.exports = {
