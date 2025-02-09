@@ -31,7 +31,7 @@ const addItem = async (req, res) => {
     await newItem.save();
     
     // עדכון כל הלקוחות
-    updateClientsForUser(userId); 
+    updateClientsForUserWithMessage(userId); 
     res.status(201).json(newItem);
   } catch (error) {
     res.status(500).json({ error: 'Failed to add item' });
@@ -54,7 +54,7 @@ const updateItem = async (req, res) => {
       return res.status(403).json({ error: 'Unauthorized: Item does not belong to you' });
     }
 
-    updateClientsForUser(userId); 
+    updateClientsForUserNoMessage(userId); 
     res.json(updatedItem);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update item' });
@@ -75,7 +75,7 @@ const deleteItem = async (req, res) => {
       return res.status(403).json({ error: 'Unauthorized: Item does not belong to you' });
     }
 
-    updateClientsForUser(userId); 
+    updateClientsForUserWithMessage(userId); 
     res.json({ message: 'Item deleted successfully', item: deletedItem });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete item' });
@@ -83,7 +83,7 @@ const deleteItem = async (req, res) => {
 };
 
 // פונקציה לשלוח עדכון לכל הלקוחות
-const updateClientsForUser = async (userId) => {
+const updateClientsForUserWithMessage = async (userId) => {
   const items = await ShoppingItem.find({ userId }).populate('userId', 'name').lean();
 
   console.log("📡 שליחת עדכון למשתמש:", userId, "👀 נתונים:", items);
@@ -108,9 +108,16 @@ const updateClientsForUser = async (userId) => {
   } catch (error) {
     console.error('Error sending FCM message:', error);
   }
-
-
 };
+
+  const updateClientsForUserNoMessage = async (userId) => {
+    const items = await ShoppingItem.find({ userId }).populate('userId', 'name').lean();
+  
+    console.log("📡 שליחת עדכון למשתמש:", userId, "👀 נתונים:", items);
+    getIO().to(userId.toString()).emit('updateList', items); // שליחה לכל הלקוחות שמחוברים לחדר הזה
+  
+  
+  };
 
 module.exports = {
   getItems,
